@@ -3,5 +3,7 @@
 
     class ToysProduct extends MainAnimalProduct {
 
+        // override
+        public $taglia = 'piccola';
     }
 ?>

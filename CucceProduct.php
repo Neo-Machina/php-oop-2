@@ -3,5 +3,7 @@
 
     class CucceProduct extends MainAnimalProduct {
 
+        // override
+        public $taglia = 'grande';
     }
 ?>

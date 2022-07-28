@@ -1,24 +1,21 @@
 <?php 
-class MainAnimalProduct {
-    public $marca;
+    class MainAnimalProduct {
+        public $marca;
 
-    public $prezzo;
+        public $prezzo;
 
-    public $quantita;
+        public $nome;
 
-    public $nome;
+        public $taglia = 'media';
 
-    public function __construct($_marca, $_prezzo, $_quantita, $_nome) {
-        $this->marca = $_marca;
-        $this->prezzo = $_prezzo;
-        $this->quantita = $_quantita;
-        $this->nome = $_nome;
+        public function __construct($_marca, $_prezzo, $_nome) {
+            $this->marca = $_marca;
+            $this->prezzo = $_prezzo;
+            $this->nome = $_nome;
+        }
+
+        public function getInfo() {
+            return "$this->marca $this->nome - Prezzo: $this->prezzo €";
+        }
     }
-
-    public function getInfo() {
-        return "$this->marca $this->nome - Quantità: $this->quantita kg - Prezzo: $this->prezzo €";
-    }
-
-    
-}
 ?>
