@@ -16,7 +16,7 @@ class MainAnimalProduct {
     }
 
     public function getInfo() {
-        return "$this->marca $this->nome - Quantità: $this->quantita - Prezzo: $this->prezzo";
+        return "$this->marca $this->nome - Quantità: $this->quantita kg - Prezzo: $this->prezzo €";
     }
 
     

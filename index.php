@@ -6,6 +6,14 @@
     // BONUS:
     // Il pagamento avviene con la carta prepagata che deve contenere un saldo sufficiente all'acquisto.
 
-    
+    require_once __DIR__ . '/CiboProduct.php';
+    require_once __DIR__ . '/ToysProduct.php';
+    require_once __DIR__ . '/CucceProduct.php';
+
+    $crocchetteCani = new CiboProduct('Monge', 38.90, 12, 'Natural Superpremium');
+    $crocchetteCani->dataScadenza = '12/09/2024';
+    $crocchetteCani->tipologiaCibo = 'secco';
+
+    var_dump($crocchetteCani);
     
 ?>
