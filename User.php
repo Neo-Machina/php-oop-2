@@ -31,8 +31,14 @@
             $somma -= ($somma * $this->sconto / 100);
 
             return $somma;
-        }
+        }  
 
-        
+        public function pagaAcquisti($saldo) {
+            if($saldo < $this->sommaCostoProdotti()) {
+                return 'ko';
+            } else {
+                return 'ok';
+            }
+        }
     }
 ?>

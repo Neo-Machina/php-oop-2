@@ -11,18 +11,18 @@
     require_once __DIR__ . '/CucceProduct.php';
     require_once __DIR__ . '/UserRegistrato.php';
     require_once __DIR__ . '/UserNonRegistrato.php';
+    require_once __DIR__ . '/CartaPrepagata.php';
 
     $crocchetteCani = new CiboProduct('Monge', 38.90, 'Natural Superpremium', 12);
     $crocchetteCani->dataScadenza = '12/09/2024';
     $crocchetteCani->tipologiaCibo = 'secco';
 
-    // var_dump($crocchetteCani);
-
     $ossoGomma = new ToysProduct('Kong', 9.89, 'Extreme Goodie Bone');
-    // var_dump($ossoGomma);
     
     $cucciaOvale = new CucceProduct('Ocean Travel', 36.97, 'Cuccetta Ovale');
-    // var_dump( $cucciaOvale);
+
+    // Carta di Michele
+    $cartaMichele = new CartaPrepagata(30);
 
     // Utente non registarto
     $micheleGialli = new UserNonRegistrato('Michele Gialli', 'micheleg@email.it');
@@ -32,14 +32,28 @@
     var_dump($micheleGialli->sommaCostoProdotti());
     var_dump($micheleGialli);
 
+    if ($micheleGialli->pagaAcquisti($cartaMichele->saldo) === 'ok') {
+        echo 'Pagamento effettuato!';
+    } else {
+        echo 'Saldo non sufficiente.';
+    }
+
+    // Carta di Selene
+    $cartaSelene = new CartaPrepagata(1500);
+
     // Utente registrato
     $seleneRossi = new UserRegistrato('Selene Rossi', 'selenes@email.it');
     $seleneRossi->aggiungiProdotti($ossoGomma);
     $seleneRossi->aggiungiProdotti($cucciaOvale);
     $seleneRossi->aggiungiProdotti($crocchetteCani);
     var_dump($seleneRossi->sommaCostoProdotti());
+    var_dump($seleneRossi);  
 
-    var_dump($seleneRossi);
-
+    if ($seleneRossi->pagaAcquisti($cartaSelene->saldo) === 'ok') {
+        echo 'Pagamento effettuato!';
+    } else {
+        echo 'Saldo non sufficiente.';
+    }
     
+
 ?>
