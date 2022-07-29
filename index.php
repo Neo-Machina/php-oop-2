@@ -16,14 +16,20 @@
     $crocchetteCani = new CiboProduct('Monge', 38.90, 'Natural Superpremium', 12);
     $crocchetteCani->dataScadenza = '12/09/2024';
     $crocchetteCani->tipologiaCibo = 'secco';
+    $crocchetteCani->codiceProduct = 'k24i';
+    $crocchetteCani->numeroFattura = '1500004567';
 
     $ossoGomma = new ToysProduct('Kong', 9.89, 'Extreme Goodie Bone');
+    $ossoGomma->codiceProduct = 'a18i';
+    $ossoGomma->numeroFattura = '9900003456';
     
     $cucciaOvale = new CucceProduct('Ocean Travel', 36.97, 'Cuccetta Ovale');
+    $cucciaOvale->codiceProduct = 'gf29';
+    $cucciaOvale->numeroFattura = '4567399900';
 
     // Carta di Michele
-    $cartaMichele = new CartaPrepagata(30);
-
+    $cartaMichele = new CartaPrepagata(30, 'Michele Gialli', '1234567891234123', '05/24', 765);
+    
     // Utente non registarto
     $micheleGialli = new UserNonRegistrato('Michele Gialli', 'micheleg@email.it');
     $micheleGialli->aggiungiProdotti($crocchetteCani);
@@ -39,8 +45,8 @@
     }
 
     // Carta di Selene
-    $cartaSelene = new CartaPrepagata(1500);
-
+    $cartaSelene = new CartaPrepagata(1500, 'Selene Rossi', '9875643217465092', '10/22', 890);
+    
     // Utente registrato
     $seleneRossi = new UserRegistrato('Selene Rossi', 'selenes@email.it');
     $seleneRossi->aggiungiProdotti($ossoGomma);
