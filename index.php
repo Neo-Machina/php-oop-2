@@ -38,11 +38,17 @@
     var_dump($micheleGialli->sommaCostoProdotti());
     var_dump($micheleGialli);
 
-    if ($micheleGialli->pagaAcquisti($cartaMichele->saldo) === 'ok') {
-        echo 'Pagamento effettuato!';
-    } else {
-        echo 'Saldo non sufficiente.';
-    }
+    try {
+        if ($micheleGialli->pagaAcquisti($cartaMichele->saldo) === 'ok') {
+            echo '<h2>Pagamento effettuato!</h2>';
+        } 
+    }   catch (Exception $e) {
+        // Salvo nel log l'errore per il programmatore
+        error_log($e->getMessage());
+
+        // Stampo in pagina un messaggio per l'utente
+        echo '<h2>Saldo non sufficiente sulla carta, si prega di controllare di nuovo il saldo effettivo della carta e di riprovare!</h2>';
+    }   
 
     // Carta di Selene
     $cartaSelene = new CartaPrepagata(1500, 'Selene Rossi', '9875643217465092', '10/22', 890);
@@ -55,11 +61,15 @@
     var_dump($seleneRossi->sommaCostoProdotti());
     var_dump($seleneRossi);  
 
-    if ($seleneRossi->pagaAcquisti($cartaSelene->saldo) === 'ok') {
-        echo 'Pagamento effettuato!';
-    } else {
-        echo 'Saldo non sufficiente.';
-    }
-    
+    try {
+        if ($seleneRossi->pagaAcquisti($cartaSelene->saldo) === 'ok') {
+            echo '<h2>Pagamento effettuato!</h2>';
+        } 
+    }   catch (Exception $e) {
+        // Salvo nel log l'errore per il programmatore
+        error_log($e->getMessage());
 
+        // Stampo in pagina un messaggio per l'utente
+        echo '<h2>Saldo non sufficiente sulla carta, si prega di controllare di nuovo il saldo effettivo della carta e di riprovare!</h2>';
+    }  
 ?>

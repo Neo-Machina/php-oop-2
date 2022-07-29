@@ -35,7 +35,7 @@
 
         public function pagaAcquisti($saldo) {
             if($saldo < $this->sommaCostoProdotti()) {
-                return 'ko';
+                throw new Exception("Utente: $this->nome: Saldo non sufficiente sulla carta");
             } else {
                 return 'ok';
             }
